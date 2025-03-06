@@ -33,9 +33,19 @@ public class EmployeeRestController {
         return employeeService.findAll();
     }
 
+    @GetMapping("/employees/{employeeId}")
+    public Employee getEmployee(@PathVariable int employeeId){
+        return employeeService.findById(employeeId);
+    }
+
     @PostMapping("/employees")
     public Employee createEmployee(@RequestBody Employee employee){
         employee.setId(0);
+        return employeeService.createOrUpdate(employee);
+    }
+
+    @PutMapping("/employees")
+    public Employee updateEmployee(@RequestBody Employee employee){
         return employeeService.createOrUpdate(employee);
     }
 
