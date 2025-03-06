@@ -3,6 +3,7 @@ package com.crm.crud.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,7 +36,13 @@ public class EmployeeRestController {
 
     @GetMapping("/employees/{employeeId}")
     public Employee getEmployee(@PathVariable int employeeId){
-        return employeeService.findById(employeeId);
+        Employee employee = employeeService.findById(employeeId);
+
+        if(employee == null){
+            throw new RuntimeException("employer with id " + employeeId + " not found ");
+        }
+
+        return employee;
     }
 
     @PostMapping("/employees")
@@ -48,5 +55,18 @@ public class EmployeeRestController {
     public Employee updateEmployee(@RequestBody Employee employee){
         return employeeService.createOrUpdate(employee);
     }
+
+    @DeleteMapping("/employees/{employeeId}")
+    public String deleteEmployee(@PathVariable int employeeId){
+        Employee employee = employeeService.findById(employeeId);
+
+        if(employee == null){
+            throw new RuntimeException("employer with id " + employeeId + " not found ");
+        }
+
+        employeeService.delete(employeeId);
+        return "Successfully deleted employee with id " + employeeId;
+        // return new ResponseBody("Successfully deleted employee with id " + employeeId, HttpStatus.NO_CONTENT);
+    } 
 
 }
