@@ -31,5 +31,18 @@ public class EmployeeServiceImpl implements EmployeeService{
     public Employee createOrUpdate(Employee employee) {
         return employeeDAO.createOrUpdate(employee);
     }
+
+    @Override
+    public Employee findById(int id) {
+        return employeeDAO.findById(id);
+    }
+
+    @Override
+    @Transactional
+    public void delete(int id) {
+        employeeDAO.delete(id);
+    }
+
+    
     
 }
