@@ -8,4 +8,6 @@ import com.crm.crud.entity.Employee;
 public interface EmployeeService {
 
     List<Employee> findAll();
+
+    Employee createOrUpdate(Employee employee);
 }

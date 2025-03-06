@@ -25,4 +25,14 @@ public class EmployeeDAOImpl implements EmployeeDAO{
         return entityManager.createQuery("FROM Employee", Employee.class).getResultList();
     }
 
+    // @Override
+    // public Employee findById(int id){
+    //     return entityManager.find(Employee.class, id);
+    // }
+
+
+    @Override
+    public Employee createOrUpdate(Employee employee){
+        return entityManager.merge(employee);
+    }
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.crm.crud.dao.EmployeeDAO;
 import com.crm.crud.entity.Employee;
@@ -23,6 +24,12 @@ public class EmployeeServiceImpl implements EmployeeService{
     @Override
     public List<Employee> findAll(){
         return employeeDAO.findAll();
+    }
+
+    @Override
+    @Transactional
+    public Employee createOrUpdate(Employee employee) {
+        return employeeDAO.createOrUpdate(employee);
     }
     
 }
