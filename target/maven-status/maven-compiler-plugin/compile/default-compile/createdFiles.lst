@@ -1,8 +1,0 @@
-com\crm\crud\dao\EmployeeDAO.class
-com\crm\crud\dao\EmployeeDAOImpl.class
-com\crm\crud\entity\Employee.class
-com\crm\crud\service\EmployeeServiceImpl.class
-com\crm\crud\CrudApplication.class
-com\crm\crud\rest\EmployeeRestController.class
-com\crm\crud\service\EmployeeService.class
-com\crm\crud\dao\EmployeeRepository.class
