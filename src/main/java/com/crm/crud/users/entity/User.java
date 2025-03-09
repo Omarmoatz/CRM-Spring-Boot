@@ -1,4 +1,4 @@
-package com.crm.crud.entity;
+package com.crm.crud.users.entity;
 
 import java.util.Set;
 
@@ -17,11 +17,18 @@ import lombok.NoArgsConstructor;
 public class User {
 
     @Id
-    @Column(name = "username", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
+
+    @Column(name = "username", unique = true, nullable = false)
     private String username;
 
     @Column(name = "password", nullable = false)
     private String password;
+
+    @Column(name = "enabled", nullable = false)
+    private boolean enabled;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<Authority> authorities;  // One User can have many Authorities

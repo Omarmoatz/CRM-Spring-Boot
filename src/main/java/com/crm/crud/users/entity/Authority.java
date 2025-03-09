@@ -1,4 +1,4 @@
-package com.crm.crud.entity;
+package com.crm.crud.users.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -16,7 +16,7 @@ public class Authority {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "authority", nullable = false)
+    @Column(name = "role", nullable = false)
     private String role;
 
     @ManyToOne

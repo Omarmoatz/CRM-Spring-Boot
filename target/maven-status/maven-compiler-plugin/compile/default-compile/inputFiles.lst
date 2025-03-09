@@ -7,3 +7,7 @@
 /home/user1/Desktop/Work Space/my-projects/CRM-Spring-Boot/src/main/java/com/crm/crud/security/DemoSecurityConfig.java
 /home/user1/Desktop/Work Space/my-projects/CRM-Spring-Boot/src/main/java/com/crm/crud/service/EmployeeService.java
 /home/user1/Desktop/Work Space/my-projects/CRM-Spring-Boot/src/main/java/com/crm/crud/service/EmployeeServiceImpl.java
+/home/user1/Desktop/Work Space/my-projects/CRM-Spring-Boot/src/main/java/com/crm/crud/users/dao/AuthorityRepository.java
+/home/user1/Desktop/Work Space/my-projects/CRM-Spring-Boot/src/main/java/com/crm/crud/users/dao/UserRepository.java
+/home/user1/Desktop/Work Space/my-projects/CRM-Spring-Boot/src/main/java/com/crm/crud/users/entity/Authority.java
+/home/user1/Desktop/Work Space/my-projects/CRM-Spring-Boot/src/main/java/com/crm/crud/users/entity/User.java
