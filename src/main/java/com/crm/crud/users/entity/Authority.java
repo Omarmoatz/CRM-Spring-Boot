@@ -20,6 +20,6 @@ public class Authority {
     private String role;
 
     @ManyToOne
-    @JoinColumn(name = "username", nullable = false)
+    @JoinColumn(name = "user", nullable = false)
     private User user;  // Many Authorities belong to one User
 }
