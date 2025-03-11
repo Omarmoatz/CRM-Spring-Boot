@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.crm.crud.employees.dao.EmployeeDAO;
 import com.crm.crud.employees.dao.EmployeeRepository;
-import com.crm.crud.employees.entity.Employee;
+import com.crm.crud.employees.model.Employee;
 
 
 

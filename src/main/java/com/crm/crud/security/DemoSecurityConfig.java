@@ -9,7 +9,6 @@ import java.net.http.HttpResponse;
 import java.util.Set;
 
 import javax.sql.DataSource;
-import com.crm.crud.users.entity.User;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -23,7 +22,8 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import com.crm.crud.users.dao.AuthorityRepository;
 import com.crm.crud.users.dao.UserRepository;
-import com.crm.crud.users.entity.Authority;
+import com.crm.crud.users.models.Authority;
+import com.crm.crud.users.models.User;
 
 @Configuration
 public class DemoSecurityConfig {

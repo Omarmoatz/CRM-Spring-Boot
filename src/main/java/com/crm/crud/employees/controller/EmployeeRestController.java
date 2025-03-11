@@ -1,4 +1,4 @@
-package com.crm.crud.employees.rest;
+package com.crm.crud.employees.controller;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.crm.crud.employees.entity.Employee;
+import com.crm.crud.employees.model.Employee;
 import com.crm.crud.employees.service.EmployeeService;
 
 

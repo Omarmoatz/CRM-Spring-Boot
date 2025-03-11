@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.crm.crud.employees.entity.Employee;
+import com.crm.crud.employees.model.Employee;
 
 import jakarta.persistence.EntityManager;
 

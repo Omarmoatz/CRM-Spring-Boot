@@ -2,7 +2,7 @@ package com.crm.crud.employees.service;
 
 import java.util.List;
 
-import com.crm.crud.employees.entity.Employee;
+import com.crm.crud.employees.model.Employee;
 
 
 public interface EmployeeService {

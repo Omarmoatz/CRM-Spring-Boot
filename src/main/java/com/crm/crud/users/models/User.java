@@ -1,4 +1,4 @@
-package com.crm.crud.users.entity;
+package com.crm.crud.users.models;
 
 import java.util.ArrayList;
 import java.util.List;

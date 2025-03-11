@@ -11,8 +11,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.crm.crud.users.dao.AuthorityRepository;
 import com.crm.crud.users.dao.UserRepository;
-import com.crm.crud.users.entity.Authority;
-import com.crm.crud.users.entity.User;
+import com.crm.crud.users.models.Authority;
+import com.crm.crud.users.models.User;
 
 @SpringBootApplication
 public class CrudApplication {

@@ -1,4 +1,4 @@
-package com.crm.crud.users.entity;
+package com.crm.crud.users.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,7 +22,7 @@ public class Authority {
 
     
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id")  // the column name in the DB 
     private User user;  // Many Authorities belong to one User
     
     
