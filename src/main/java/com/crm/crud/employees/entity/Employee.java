@@ -1,4 +1,4 @@
-package com.crm.crud.entity;
+package com.crm.crud.employees.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

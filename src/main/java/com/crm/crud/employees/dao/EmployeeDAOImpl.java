@@ -1,11 +1,11 @@
-package com.crm.crud.dao;
+package com.crm.crud.employees.dao;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.crm.crud.entity.Employee;
+import com.crm.crud.employees.entity.Employee;
 
 import jakarta.persistence.EntityManager;
 

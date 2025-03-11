@@ -1,17 +1,17 @@
-package com.crm.crud.service;
+package com.crm.crud.employees.dao;
 
 import java.util.List;
 
-import com.crm.crud.entity.Employee;
+import com.crm.crud.employees.entity.Employee;
 
 
-public interface EmployeeService {
-
+public interface EmployeeDAO {
+    
     List<Employee> findAll();
 
     Employee findById(int id);
 
     Employee createOrUpdate(Employee employee);
-
+    
     void delete(int id);
 }

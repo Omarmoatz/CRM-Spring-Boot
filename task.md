@@ -1,0 +1,1 @@
+create a profile entity to test the one-to-one relation

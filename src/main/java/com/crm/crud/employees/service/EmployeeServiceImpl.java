@@ -1,4 +1,4 @@
-package com.crm.crud.service;
+package com.crm.crud.employees.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.crm.crud.dao.EmployeeDAO;
-import com.crm.crud.dao.EmployeeRepository;
-import com.crm.crud.entity.Employee;
+import com.crm.crud.employees.dao.EmployeeDAO;
+import com.crm.crud.employees.dao.EmployeeRepository;
+import com.crm.crud.employees.entity.Employee;
 
 
 
