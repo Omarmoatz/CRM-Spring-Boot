@@ -28,46 +28,6 @@ import com.crm.crud.users.entity.Authority;
 @Configuration
 public class DemoSecurityConfig {
 
-    @Bean
-    CommandLineRunner initDatabase(UserRepository userRepository, AuthorityRepository authorityRepository) {
-        return args -> {
-            // User user = new User();
-            // user.setUsername("omarAdmin");
-            // user.setPassword("12345");
-            // user.setEnabled(true);
-
-            // userRepository.save(user);
-            
-            // Authority roleAdmin = new Authority();
-            // roleAdmin.setRole("ROLE_ADMIN");
-            // roleAdmin.setUser(user);
-
-            // Authority roleManager = new Authority();
-            // roleManager.setRole("ROLE_MANAGER");
-            // roleManager.setUser(user);
-            
-            // Authority roleEmployee = new Authority();
-            // roleEmployee.setRole("ROLE_EMPLOYEE");
-            // roleEmployee.setUser(user);
-            
-            // authorityRepository.saveAll(Set.of(roleAdmin, roleManager, roleEmployee));
-            
-            // // System.out.println(userRepository.findAll());
-            // System.out.println("User and Authorities created successfully!");
-        };
-    }
-
-    // @Bean
-    // public User inMemoryUserDetailsManager(){
-
-        // UserDetails omar = User.builder()
-        //                 .username("omar")
-        //                 .password("{noop}12345")
-        //                 .roles("ADMIN", "MANAGER", "EMPLOYEE")
-        //                 .build();
-        
-        // return new InMemoryUserDetailsManager(omar);
-    // }
 
     // to get the users from the DB
     @Bean
@@ -75,11 +35,11 @@ public class DemoSecurityConfig {
         JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
     
         jdbcUserDetailsManager.setUsersByUsernameQuery(
-            "select username, password, enabled from users where username = ?"
+            "SELECT username, password, enabled FROM users WHERE username = ?"
         );
     
         jdbcUserDetailsManager.setAuthoritiesByUsernameQuery(
-            "select user, role from authorities where user = ?"
+            "SELECT u.username, a.role FROM authorities a INNER JOIN users u ON u.id = a.user_id WHERE u.username = ?"
         );
     
         return jdbcUserDetailsManager;

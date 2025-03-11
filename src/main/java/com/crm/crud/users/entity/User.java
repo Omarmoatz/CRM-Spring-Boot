@@ -1,18 +1,20 @@
 package com.crm.crud.users.entity;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 
 
 @Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@ToString(exclude = "authorities")  // Prevent infinite recursion
 @Table(name = "users")
 public class User {
 
@@ -30,7 +32,26 @@ public class User {
     @Column(name = "enabled", nullable = false)
     private boolean enabled;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-    private Set<Authority> authorities;  // One User can have many Authorities
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    private List<Authority> authorities;  // One User can have many Authorities
     
+
+    public void addAuthority(Authority authority){
+
+        if(authorities == null){
+            authorities = new ArrayList<>();
+        }
+
+        authorities.add(authority);
+
+        authority.setUser(this);
+    }
+
+
+    public User(String username, String password, boolean enabled) {
+        this.username = username;
+        this.password = password;
+        this.enabled = enabled;
+    }
+
 }
