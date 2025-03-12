@@ -58,6 +58,12 @@ public class DemoSecurityConfig {
                                 .requestMatchers(HttpMethod.PUT, "/api/members/**").hasRole("MANAGER")
                                 .requestMatchers(HttpMethod.DELETE, "/api/members/**").hasRole("ADMIN")
 
+                                .requestMatchers(HttpMethod.GET, "/api/profiles").hasRole("EMPLOYEE")
+                                .requestMatchers(HttpMethod.GET, "/api/profiles/**").hasRole("EMPLOYEE")
+                                .requestMatchers(HttpMethod.POST, "/api/profiles").hasRole("MANAGER")
+                                .requestMatchers(HttpMethod.PUT, "/api/profiles/**").hasRole("MANAGER")
+                                .requestMatchers(HttpMethod.DELETE, "/api/profiles/**").hasRole("ADMIN")
+
                                 .requestMatchers(HttpMethod.GET, "/api/users").hasRole("EMPLOYEE")
                                 .requestMatchers(HttpMethod.GET, "/api/users/**").hasRole("EMPLOYEE")
                                 .requestMatchers(HttpMethod.POST, "/api/users").hasRole("MANAGER")

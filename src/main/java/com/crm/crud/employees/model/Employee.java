@@ -87,6 +87,15 @@ public class Employee {
         this.email = email;
     }
 
+    public EmployeeProfile getProfile() {
+        return employeeProfile;
+    }
+
+
+    public void setProfile(EmployeeProfile employeeProfile) {
+        this.employeeProfile = employeeProfile;
+    }
+
 
     // define toString
     @Override

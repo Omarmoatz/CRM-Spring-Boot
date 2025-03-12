@@ -1,5 +1,6 @@
 package com.crm.crud;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.boot.CommandLineRunner;
@@ -9,10 +10,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.crm.crud.employees.dao.EmployeeRepository;
+import com.crm.crud.employees.model.Employee;
+import com.crm.crud.employees.model.EmployeeProfile;
 import com.crm.crud.users.dao.AuthorityRepository;
 import com.crm.crud.users.dao.UserRepository;
 import com.crm.crud.users.models.Authority;
 import com.crm.crud.users.models.User;
+
+import jakarta.persistence.EntityManager;
 
 @SpringBootApplication
 public class CrudApplication {
@@ -28,8 +34,15 @@ public class CrudApplication {
 
 	// use the ( entity manager or DAO ) to create, find, update, delete the user and authorities
 	@Bean
-    CommandLineRunner initDatabase(UserRepository userRepository, AuthorityRepository authorityRepository ,PasswordEncoder passwordEncoder) {
+    CommandLineRunner initDatabase(
+        UserRepository userRepository,
+        AuthorityRepository authorityRepository,
+        PasswordEncoder passwordEncoder, 
+        EmployeeRepository employeeRepository,
+        EntityManager entityManager
+    ) {
         return args -> {
+            // create a super user
             User user = new User("omarAdmin", "12345", true);
 			user.setPassword(passwordEncoder.encode(user.getPassword()));
             
@@ -46,8 +59,31 @@ public class CrudApplication {
             System.out.println("User and Authorities created successfully!");
 			// userRepository.findAll().forEach(System.out::println);
 			// authorityRepository.findAll().forEach(System.out::println);
+
+            // ------test the one-to-many relationship---------
+            List<Authority> allAuthorities = authorityRepository.findAll();
             System.out.println(userRepository.findAll());
-            System.out.println(authorityRepository.findAll());
+            System.out.println(allAuthorities);
+
+            User user2 = entityManager.find(User.class, 1);
+            System.out.println(user2);
+
+            // i did this because of the lazy loading
+            user2.setAuthorities(allAuthorities);
+
+            System.out.println("user2 allAuthorities" + user2.getAuthorities());
+            System.out.println("---------------------------------------");
+
+
+            //--------test the one-to-one relationship------------
+            Employee employee = new Employee("Omar", "Ahmed", "omar@mail.com");
+            EmployeeProfile profile = new EmployeeProfile("Java Developer", "Cairo", "0123456789");
+
+            employee.setProfile(profile);
+            profile.setEmployee(employee);
+
+            employeeRepository.save(employee);
+            System.out.println("Employee and Profile created successfully!");
         };
     }
 
