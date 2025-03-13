@@ -64,6 +64,12 @@ public class DemoSecurityConfig {
                                 .requestMatchers(HttpMethod.PUT, "/api/profiles/**").hasRole("MANAGER")
                                 .requestMatchers(HttpMethod.DELETE, "/api/profiles/**").hasRole("ADMIN")
 
+                                .requestMatchers(HttpMethod.GET, "/api/employees").hasRole("EMPLOYEE")
+                                .requestMatchers(HttpMethod.GET, "/api/employees/**").hasRole("EMPLOYEE")
+                                .requestMatchers(HttpMethod.POST, "/api/employees").hasRole("MANAGER")
+                                .requestMatchers(HttpMethod.PUT, "/api/employees/**").hasRole("MANAGER")
+                                .requestMatchers(HttpMethod.DELETE, "/api/employees/**").hasRole("ADMIN")
+
                                 .requestMatchers(HttpMethod.GET, "/api/users").hasRole("EMPLOYEE")
                                 .requestMatchers(HttpMethod.GET, "/api/users/**").hasRole("EMPLOYEE")
                                 .requestMatchers(HttpMethod.POST, "/api/users").hasRole("MANAGER")
@@ -75,6 +81,7 @@ public class DemoSecurityConfig {
                                 .requestMatchers(HttpMethod.POST, "/api/authorities").hasRole("MANAGER")
                                 .requestMatchers(HttpMethod.PUT, "/api/authorities/**").hasRole("MANAGER")
                                 .requestMatchers(HttpMethod.DELETE, "/api/authorities/**").hasRole("ADMIN")
+
                         );
         
         // authentication type                        

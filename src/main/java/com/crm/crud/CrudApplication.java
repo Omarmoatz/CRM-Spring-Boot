@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.crm.crud.aspects.MyService;
 import com.crm.crud.employees.dao.EmployeeProfileRepository;
 import com.crm.crud.employees.dao.EmployeeRepository;
 import com.crm.crud.employees.model.Employee;
@@ -42,60 +43,64 @@ public class CrudApplication {
             PasswordEncoder passwordEncoder,
             EmployeeRepository employeeRepository,
             EmployeeProfileRepository employeeProfileRepository,
-            EntityManager entityManager) {
+            EntityManager entityManager,
+            MyService myService
+            ) {
         return args -> {
             // create a super user
-            User user = new User("omarAdmin", "12345", true);
-            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            // User user = new User("omarAdmin", "12345", true);
+            // user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-            Authority roleAdmin = new Authority("ROLE_ADMIN");
-            user.addAuthority(roleAdmin);
+            // Authority roleAdmin = new Authority("ROLE_ADMIN");
+            // user.addAuthority(roleAdmin);
 
-            Authority roleManager = new Authority("ROLE_MANAGER");
-            user.addAuthority(roleManager);
+            // Authority roleManager = new Authority("ROLE_MANAGER");
+            // user.addAuthority(roleManager);
 
-            Authority roleEmployee = new Authority("ROLE_EMPLOYEE");
-            user.addAuthority(roleEmployee);
+            // Authority roleEmployee = new Authority("ROLE_EMPLOYEE");
+            // user.addAuthority(roleEmployee);
 
-            userRepository.save(user);
-            System.out.println("User and Authorities created successfully!");
+            // userRepository.save(user);
+            // System.out.println("User and Authorities created successfully!");
             // userRepository.findAll().forEach(System.out::println);
             // authorityRepository.findAll().forEach(System.out::println);
 
             // ------test the one-to-many relationship---------
-            List<Authority> allAuthorities = authorityRepository.findAll();
-            System.out.println(userRepository.findAll());
-            System.out.println(allAuthorities);
+            // List<Authority> allAuthorities = authorityRepository.findAll();
+            // System.out.println(userRepository.findAll());
+            // System.out.println(allAuthorities);
 
-            User user2 = entityManager.find(User.class, 1);
-            System.out.println(user2);
+            // User user2 = entityManager.find(User.class, 1);
+            // System.out.println(user2);
 
-            // i did this because of the lazy loading
-            user2.setAuthorities(allAuthorities);
+            // // i did this because of the lazy loading
+            // user2.setAuthorities(allAuthorities);
 
-            System.out.println("user2 allAuthorities" + user2.getAuthorities());
-            System.out.println("---------------------------------------");
+            // System.out.println("user2 allAuthorities" + user2.getAuthorities());
+            // System.out.println("---------------------------------------");
 
-            // --------test the one-to-one relationship------------
-            Employee employee = new Employee("Omar", "Ahmed", "omar@mail.com");
-            EmployeeProfile profile = new EmployeeProfile("Java Developer", "Cairo", "0123456789");
+            // // --------test the one-to-one relationship------------
+            // Employee employee = new Employee("Omar", "Ahmed", "omar@mail.com");
+            // EmployeeProfile profile = new EmployeeProfile("Java Developer", "Cairo", "0123456789");
 
-            employee.setProfile(profile);
-            profile.setEmployee(employee);
+            // employee.setProfile(profile);
+            // profile.setEmployee(employee);
 
-            employeeRepository.save(employee);
+            // employeeRepository.save(employee);
 
             // get the profile from the employee
             Employee emp = employeeRepository.findById(1).get();
             System.out.println(emp);
             System.out.println(emp.getProfile());
 
-            EmployeeProfile prof = employeeProfileRepository.findById(1).get();
-            System.out.println(prof);
-            System.out.println(prof.getEmployee());
+            // EmployeeProfile prof = employeeProfileRepository.findById(1).get();
+            // System.out.println(prof);
+            // System.out.println(prof.getEmployee());
 
 
-            System.out.println("Employee and Profile created successfully!");
+            // System.out.println("Employee and Profile created successfully!");
+
+            myService.doAnyThing();
         };
     }
 

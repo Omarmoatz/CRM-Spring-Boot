@@ -43,7 +43,7 @@ public class Lead {
         joinColumns = @JoinColumn(name = "lead_id"),
         inverseJoinColumns = @JoinColumn(name = "product_id")
     )
-    private List<Product> products;
+    private List<Product> theProducts;
 
     public Lead(String name, String email, String phone) {
         this.name = name;
@@ -54,11 +54,11 @@ public class Lead {
     // add convenience method
     public void addProduct(Product product){
 
-        if(products == null){
-            products = new ArrayList<>();
+        if(theProducts == null){
+            theProducts = new ArrayList<>();
         }
 
-        products.add(product);
+        theProducts.add(product);
         product.addLead(this);
     }
 

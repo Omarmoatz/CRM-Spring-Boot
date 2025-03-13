@@ -35,7 +35,7 @@ public class Product {
     @Column(name = "price")
     private double price;
 
-    @ManyToMany(mappedBy = "product",
+    @ManyToMany(mappedBy = "theProducts",
                 cascade = {CascadeType.DETACH, CascadeType.MERGE, 
                            CascadeType.PERSIST, CascadeType.REFRESH})
     private List<Lead> leads;
