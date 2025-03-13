@@ -8,6 +8,8 @@
 /home/user1/Desktop/Work Space/my-projects/CRM-Spring-Boot/src/main/java/com/crm/crud/employees/model/EmployeeProfile.java
 /home/user1/Desktop/Work Space/my-projects/CRM-Spring-Boot/src/main/java/com/crm/crud/employees/service/EmployeeService.java
 /home/user1/Desktop/Work Space/my-projects/CRM-Spring-Boot/src/main/java/com/crm/crud/employees/service/EmployeeServiceImpl.java
+/home/user1/Desktop/Work Space/my-projects/CRM-Spring-Boot/src/main/java/com/crm/crud/leads/models/Lead.java
+/home/user1/Desktop/Work Space/my-projects/CRM-Spring-Boot/src/main/java/com/crm/crud/leads/models/Product.java
 /home/user1/Desktop/Work Space/my-projects/CRM-Spring-Boot/src/main/java/com/crm/crud/security/DemoSecurityConfig.java
 /home/user1/Desktop/Work Space/my-projects/CRM-Spring-Boot/src/main/java/com/crm/crud/users/dao/AuthorityRepository.java
 /home/user1/Desktop/Work Space/my-projects/CRM-Spring-Boot/src/main/java/com/crm/crud/users/dao/UserRepository.java
